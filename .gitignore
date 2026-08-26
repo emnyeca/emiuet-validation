@@ -1,0 +1,20 @@
+# KiCad local and generated files
+*-backups/
+*.bak
+*.kicad_prl
+*.kicad_sch-bak
+*.kicad_pcb-bak
+*.lck
+~$*
+
+# Manufacturing and firmware build output
+**/build/
+**/gerber/
+**/drill/
+**/bom.csv
+**/position.csv
+firmware/managed_components/
+
+# OS files
+.DS_Store
+Thumbs.db
