@@ -9,30 +9,75 @@
 |---|---|---|---|---|
 | G0 | 要求・電流予算 | なし | 最大/通常負荷、充電電流、許容リップル、低電圧方針を承認 | PWR-01回路確定 |
 | G1 | PWR-01 | G0 | 全入力状態、負荷段階、切替、逆流、熱、PG/CHGを実測 | PWR-01でCORE-01を給電 |
-| G2 | CORE-01 | 安全なベンチ給電 | 全起動条件、書込み、Native USB列挙、連続再起動を合格 | 周辺機能接続 |
+| G2 | CORE-01 | 安全なベンチ給電 | 全起動条件、書込み、固定UFP Composite列挙、USB MIDI/HID、mode切替、抜差し・再接続、連続動作を合格 | 周辺機能接続 |
 | G3 | MAT-BB-01 | 診断FW | 単押し、和音、素早い反復で誤検出なし | MAT-01製造 |
 | G4 | MAT-01 | G2/G3 | 78キー、複数同時押し、起動時押下、長時間走査を合格 | INT-01へ行列回路移植 |
 | G5 | ANA-01 | G2 | 3入力の全域、静止値、戻り、同時走査時ノイズを合格 | INT-01へADC回路移植 |
 | G6 | UI-BB-01 | G2 | I2C共有、全操作、表示負荷中の走査/MIDIを合格 | INT-01へUI接続移植 |
 | G7 | MIDI-01 | G1/G2 | Type-A配線、電気条件、実受信機、UART競合回避を合格 | INT-01へTRS回路移植 |
 | G8 | BLE | G2 | 実transport、接続/再接続、USB/TRS同時出力、負荷を合格 | INT-01でBLE有効化 |
-| G9 | INT-01 | G1–G8 | 自己電源で全機能同時動作、電源遷移、長時間演奏を合格 | Rev.B設計開始 |
+| G9 | INT-01 | G1–G8 | 自己電源でUSB MIDI/HID・TRS・BLE・行列・slider・OLEDを統合し、電源/USB遷移と長時間動作を合格 | Rev.B設計開始 |
 
 G8のBLEはCORE-01上で検証し、専用PCBは作りません。無線問題が再現する場合
 のみ、アンテナ周辺条件を変えたCORE-01派生版を作ります。
+
+USB Host、Host MIDI、DRP/OTG role switching、Host VBUS sourcing、および
+Device/Host transitionは全Gateで`OUT OF SCOPE BY DESIGN`とする。これらを
+未実施としてBLOCKEDにしたり、Rev.B開始条件へ戻したりしない。
+
+## G2 CORE-01 USB Device合格条件
+
+### Enumeration
+
+- 標準USB Hostへ接続すると、MIDIとHID Keyboardを含む一つのComposite Deviceとして列挙する
+- USB Host stack、role negotiation、Host VBUS制御をfirmwareへ組み込まず成立する
+- MIDI/TYPE切替でUSB disconnectまたは再enumerationを発生させない
+
+### USB MIDI / HID
+
+- Note On/Offを送信でき、連続演奏でtransportが停止しない
+- TYPE Modeでletter、number、Space、Enter、Backspace、modifier+key、arrowを入力できる
+- MIDI→TYPE→MIDIを反復してもstuck note/key、reset、crashがない
+
+### Physical detach / reconnect
+
+- USB-C #2抜差しでfirmwareがhangまたはresetしない
+- 切断時のpending MIDI/HID eventを再接続後に送信しない
+- stale note/key/modifier stateを残さず、Composite Deviceとして再列挙する
+
+Windowsを最低限の必須実測Hostとし、利用可能ならmacOS等を追加する。実測前は
+`REQUIRES HARDWARE TEST`であり、PASSと推定しない。
+
+## G9 INT-01統合条件
+
+- USB MIDI + matrix performance
+- USB HID TYPE Mode + matrix
+- USB + TRS simultaneous MIDI output
+- USB + BLE simultaneous operation
+- OLED update during USB MIDI/HID operation
+- battery operation中のUSB-C #2 detach/reconnect
+- Shift+letter、Ctrl+C/V/Z、Fn+mapped key、複数Space、4隅mode chord
+
+matrix hardwareが全物理キーをscanできることと、USB Boot Keyboard reportの
+6KRO + modifiers制約は別々に記録する。
+
+CME H12MIDI ProとのComposite Device相互運用は、利用可能な場合の
+operational interoperability testとする。MIDI interface認識、HID併存、
+Note On/Off routing、reconnectを確認するが、未実施・非対応はRev.B必須電気
+GateのFAILにしない。
 
 ## PWR-01 入力状態
 
 各行を無負荷、通常負荷、最大負荷で測定します。
 
-| Battery | Charge USB | MIDI USB | 確認事項 |
+| Battery | Charge USB (#1) | Data USB (#2) | 確認事項 |
 |---|---|---|---|
 | 接続 | なし | なし | 電池起動、5V/3.3V、BAT_VSENSE、待機電流 |
 | 接続 | 接続 | なし | 給電中充電、PG/CHG、温度、負荷応答 |
-| 接続 | なし | 接続 | USBデータ側からの意図しない給電・逆流 |
+| 接続 | なし | 接続 | Device側VBUS検出、内部への意図しない給電、USB-C #2への逆流 |
 | 接続 | 接続 | 接続 | 二重接続時の電流経路、列挙への影響 |
 | なし | 接続 | なし | バッテリーなし動作の可否を仕様どおり確認 |
-| なし | なし | 接続 | 禁止経路なら起動しないこと、保護状態 |
+| なし | なし | 接続 | USB-C #2だけでは起動しないこと、内部への給電・逆流がないこと |
 | 接続 | 抜差し | 任意 | リセット、Note Off欠落、電圧降下 |
 
 Hearthを比較に使う場合も同じ負荷・同じ測定器・同じ記録形式を使います。
@@ -48,4 +93,20 @@ Hearthを比較に使う場合も同じ負荷・同じ測定器・同じ記録�
 - 写真、波形、ログの相対パス
 - 異常の再現手順と暫定回避策
 
+USB試験では追加で、Host OS / hardware host、USB cable、enumerated
+interfaces、VID/PID、MIDI/HID結果、detach/reconnect回数、mode transition
+回数、stuck note/key回数、MCU reset回数を記録する。
+
 結果は [results/TEMPLATE.md](results/TEMPLATE.md) を複製して保存します。
+
+## 現在の未実測項目
+
+次は文書またはビルドだけでPASSにせず、実測まで`REQUIRES HARDWARE TEST`
+として扱う。
+
+- real OS composite enumeration
+- physical USB-C #2 detach / reconnect
+- battery + Data USB (#2) interaction
+- USB-C #1 + #2 simultaneous connection
+- self-powered VBUS monitor threshold / disconnect behavior
+- CME H12MIDI Pro interoperability（任意運用試験、Rev.B必須Gateではない）

@@ -6,9 +6,22 @@ Rev.Bの完成形は、Emiuet単体で以下を満たします。
 
 - 1セルLi-ionバッテリーから起動・演奏できる
 - USB-C充電中にも演奏できる
-- 充電USBとUSB-MIDIをそれぞれの役割どおり扱える
-- USB-MIDI、BLE-MIDI、TRS MIDI Type-Aを出力できる
+- USB-C #1を充電/電源入力、USB-C #2を固定USB Device/UFPとして扱える
+- USB-C #2でUSB MIDI + USB HID Keyboard Composite Deviceを提供できる
+- BLE-MIDI、TRS MIDI Type-Aを出力できる
 - HearthやEUB-BUSを接続しなくても全機能を使用できる
+
+```text
+USB-C #2: USB Device / UFP
+└─ Composite Device
+   ├─ USB MIDI
+   └─ USB HID Keyboard
+```
+
+USB Host、DRP、OTG role switching、Host VBUS sourcing、および
+Device/Host runtime transitionは、意図的にRev.B validation boundaryの外と
+する。これらは`NOT TESTED`ではなく`OUT OF SCOPE BY DESIGN`であり、未検証を
+理由にRev.B開始を止めない。
 
 検証基板間のコネクタは診断のための一時的な境界です。Rev.Bの外部仕様へ
 そのまま持ち込むことを前提にしません。
@@ -37,6 +50,9 @@ PWR-01とCORE-01は、最初は電流制限付きベンチ電源で個別に立�
 Emiuetの製品電源はPWR-01で検証し、Rev.Bへ統合します。現時点の比較対象は
 Emiuet Rev.AのBQ24074、LM66100、TPS61023、AP7333を中心とする電源ブロック
 ですが、部品名を固定することより、必要な動作と測定結果を優先します。
+製品正本のDevice-only判断により、Rev.AのLM66100をUSB-C #2 Host VBUS経路の
+必須部品として固定しない。内部5V生成の必要性とUSB-C #2への外向き接続は
+別々に評価する。
 
 Hearthは別製品です。任意の比較電源または負荷切り分け用として使えますが、
 PWR-01の代替にはなりません。接続ルールは
