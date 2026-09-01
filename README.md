@@ -7,6 +7,11 @@ Emiuetは、内蔵バッテリー、充電、PowerPath、必要な電源レー�
 持つ、単体完結のMIDIキーボードです。HearthやEUB-BUSは製品の通常動作に
 必要ありません。
 
+USB-C #1 is the charging/power input. USB-C #2 is a fixed USB 2.0
+Device/UFP port that exposes USB MIDI + USB HID Keyboard as one composite
+device. USB Host, DRP, OTG role switching, and Host VBUS sourcing are outside
+the Rev.B product and validation scope by design.
+
 ## このリポジトリの役割
 
 - 機能ごとの回路図、PCB、ブレッドボード構成を分離する
@@ -23,7 +28,7 @@ Rev.Aの回路をそのまま正解とは扱いません。流用箇所には出
 | ID | 対象 | 形態 | 主に切り分けるもの |
 |---|---|---|---|
 | PWR-01 | Emiuet内蔵電源 | PCB | 充電、PowerPath、5V/3.3V、逆流、状態信号 |
-| CORE-01 | MCU・起動・Native USB | PCB | ESP32-S3、EN/BOOT、USB保護・列挙 |
+| CORE-01 | MCU・起動・固定USB Device | PCB | ESP32-S3、EN/BOOT、UFP・Composite列挙・再接続 |
 | MAT-BB-01 | 2×4キー行列 | ブレッドボード | ダイオード方向、走査、デバウンス |
 | MAT-01 | 6×13キー行列 | PCB | 全78キー、ゴースト、配線・コネクタ |
 | ANA-01 | 3スライダー | PCB | ADC、平滑化、戻り値、電源・走査ノイズ |

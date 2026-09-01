@@ -20,6 +20,21 @@
 | 負荷・MIDI受信機 | |
 | 測定器 | |
 
+USB試験の場合は次も記録する。
+
+| USB項目 | 値 |
+|---|---|
+| Host OS / hardware host | |
+| USB cable | |
+| Enumerated interfaces | |
+| VID / PID | |
+| MIDI result | |
+| HID result | |
+| Detach / reconnect count | |
+| MIDI / TYPE transition count | |
+| Stuck note / key occurrence | |
+| MCU reset occurrence | |
+
 ## 手順と結果
 
 | Step | 条件・操作 | 期待値 | 実測値 | 判定 |
