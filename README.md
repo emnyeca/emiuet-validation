@@ -1,6 +1,6 @@
 # Emiuet Rev.B Validation
 
-Emiuet Rev.Bで重大な設計ミスだけを、少ない基板数・試行数・費用で先に除去するための検証リポジトリです。製品仕様の正本は [`emnyeca/emiuet`](../emiuet/README.md) であり、このリポジトリは製品仕様を独自に定義しません。
+Emiuet Rev.Bで重大な設計ミスだけを、少ない基板数・試行数・費用で先に除去するための検証リポジトリです。製品仕様の正本は [`emnyeca/emiuet`](https://github.com/emnyeca/emiuet) であり、このリポジトリは製品仕様を独自に定義しません。
 
 ## 現行の検証対象
 
