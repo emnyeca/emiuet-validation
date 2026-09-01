@@ -1,5 +1,7 @@
 # ANA-01: アナログ操作
 
+> **Historical:** pre-Rev.B分割検証案です。現行mandatory validationではありません。
+
 ## 搭載範囲
 
 - Pitch Bend、CC#1、Velocityの3スライダー

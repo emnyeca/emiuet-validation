@@ -1,5 +1,7 @@
 # CORE-01: MCU・起動・固定USB Device
 
+> **Historical:** pre-Rev.B分割検証案です。現行mandatory validationではありません。
+
 ## 搭載範囲
 
 - ESP32-S3-MINI-1と必要なデカップリング

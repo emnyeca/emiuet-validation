@@ -1,5 +1,7 @@
 # Hearthの任意ベンチ接続
 
+> **Historical:** pre-Rev.B検証案の任意interface記録です。現行mandatory validationではありません。
+
 ## 目的
 
 HearthをEmiuetの外付け電源にするための仕様ではありません。PWR-01と負荷側の

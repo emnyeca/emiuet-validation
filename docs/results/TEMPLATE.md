@@ -1,10 +1,10 @@
-# 検証結果: TEST-ID / 短い名称
+# 検証結果: Vx-xx / 短い名称
 
-- 結果: `PASS` / `FAIL` / `BLOCKED`
+- 結果: `PASS` / `FAIL` / `BLOCKED` / `NOT RUN`
 - 実施日:
 - 担当:
-- Hardware commit:
-- Firmware commit:
+- Hardware commit / board rev:
+- Firmware commit / config:
 
 ## 目的と合格条件
 
@@ -14,32 +14,30 @@
 
 | 項目 | 型番・設定・識別情報 |
 |---|---|
-| 基板Rev | |
 | 電源・電流制限 | |
-| バッテリー | |
-| 負荷・MIDI受信機 | |
-| 測定器 | |
-
-USB試験の場合は次も記録する。
-
-| USB項目 | 値 |
-|---|---|
+| USB Source advertisement | Default / 1.5A / 3A |
 | Host OS / hardware host | |
 | USB cable | |
-| Enumerated interfaces | |
-| VID / PID | |
-| MIDI result | |
-| HID result | |
-| Detach / reconnect count | |
-| MIDI / TYPE transition count | |
-| Stuck note / key occurrence | |
-| MCU reset occurrence | |
+| MIDI送受信機 | |
+| 測定器 | |
 
 ## 手順と結果
 
 | Step | 条件・操作 | 期待値 | 実測値 | 判定 |
 |---:|---|---|---|---|
 | 1 | | | | |
+
+## USB / MIDI / RGB補足
+
+| 項目 | 結果 |
+|---|---|
+| Enumerated interfaces / VID / PID | |
+| MIDI TX / RX | |
+| HID | |
+| Detach / reconnect count | |
+| TUSB320 attach / orientation / current | |
+| LED brightness / estimated current scale | |
+| Stuck note/key, MCU reset, frame error | |
 
 ## 添付
 
@@ -50,5 +48,6 @@ USB試験の場合は次も記録する。
 ## 異常と次の判断
 
 - 再現手順:
-- 推定ではなく確認できた範囲:
+- 観測できた事実:
+- 未確認の推測:
 - 次の試験または修正:
