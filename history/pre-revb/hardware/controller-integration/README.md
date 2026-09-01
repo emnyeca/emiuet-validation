@@ -1,5 +1,7 @@
 # INT-01: コントローラ統合
 
+> **Historical:** pre-Rev.B分割検証案です。現行mandatory validationではありません。
+
 Rev.Bの外形・78キースイッチを含む完成基板へ進む前の、中間統合PCBです。
 
 ## 統合するもの

@@ -1,68 +1,39 @@
-# 検証アーキテクチャ
+# Rev.B Validation Architecture
 
-## 製品境界
+## 役割と正本
 
-Rev.Bの完成形は、Emiuet単体で以下を満たします。
+製品の回路、GPIO、電力予算、MIDI/HID/RGB挙動は `emnyeca/emiuet` を正本とします。このリポジトリが管理するのは、pre-Rev.Bの記録、VAL-CORE-01の試験、Rev.B prototype acceptance、pass/fail evidenceだけです。
 
-- 1セルLi-ionバッテリーから起動・演奏できる
-- USB-C充電中にも演奏できる
-- USB-C #1を充電/電源入力、USB-C #2を固定USB Device/UFPとして扱える
-- USB-C #2でUSB MIDI + USB HID Keyboard Composite Deviceを提供できる
-- BLE-MIDI、TRS MIDI Type-Aを出力できる
-- HearthやEUB-BUSを接続しなくても全機能を使用できる
+## 二段階構成
 
-```text
-USB-C #2: USB Device / UFP
-└─ Composite Device
-   ├─ USB MIDI
-   └─ USB HID Keyboard
-```
+### 1. VAL-CORE-01
 
-USB Host、DRP、OTG role switching、Host VBUS sourcing、および
-Device/Host runtime transitionは、意図的にRev.B validation boundaryの外と
-する。これらは`NOT TESTED`ではなく`OUT OF SCOPE BY DESIGN`であり、未検証を
-理由にRev.B開始を止めない。
+一枚の統合基板で、製品へ展開する前に次の高影響リスクを切り分けます。
 
-検証基板間のコネクタは診断のための一時的な境界です。Rev.Bの外部仕様へ
-そのまま持ち込むことを前提にしません。
+- USB-C一口からの5V給電、保護、3.3V生成
+- ESP32-S3-MINI-1のEN/reset/BOOT、初回書込み、再書込み、復旧
+- Device/UFPでのUSB MIDI/HID composite enumeration
+- TUSB320のattach/orientation/Default・1.5A・3A advertisement読出し
+- OLEDとTUSB320のI2C共存
+- 2×3 matrix、slider ×1、button ×1、pilot LED
+- AHCT level shift、SK6812 MINI-E ×6、RMT/DMA、USB MIDI RXからRGBまで
+- isolated TRS MIDI INとTRS MIDI OUT
+- 物理電源スイッチによる反復power cycle
 
-## 分割原則
+78キーや78 LEDの配電・温度・電圧降下は小型基板では再現しません。
 
-各基板は「一つの故障仮説をDMMまたはロジックアナライザで切り分けられる」
-大きさにします。機能をまたぐ信号は、GND、電源、必要な論理信号だけを
-明示したヘッダへ出します。全レールと重要信号にテストポイントを設けます。
+### 2. Emiuet Rev.B prototype
 
-```text
-PWR-01 internal power ──> CORE-01 MCU/USB ──┬──> MAT-01 matrix
-                                            ├──> ANA-01 sliders
-                                            ├──> UI-BB-01 OLED/buttons
-                                            └──> MIDI-01 TRS output
+製品寸法の基板で78 keys、78 RGB LEDs、5V distribution、熱、全I/O同時動作、1～2時間の連続動作を確認します。VAL-CORE-01合格を製品prototypeの合格とみなしません。
 
-合格済みの各回路 ──> INT-01 controller integration ──> Emiuet Rev.B
-```
+## 判定原則
 
-PWR-01とCORE-01は、最初は電流制限付きベンチ電源で個別に立ち上げ、次に
-相互接続します。信号ヘッダ経由で電源を意図せず逆供給しないよう、接続前に
-各ピンの電源状態を確認します。
+- 文書レビューやビルド成功は実機PASSではない
+- 観測値、回路図/BOM/firmware commit、測定条件、波形・ログを結果に残す
+- 未実施は `NOT RUN`、設備不足は `BLOCKED`、期待値未達は `FAIL` とする
+- ソフトウェア制限で安全側に倒した事項と、hardwareが保証する上限を分けて記録する
+- Default current時はUSB世代をCCだけで判定できないため、安全側のLED budgetを評価する
 
-## 電源の正本
+## 境界
 
-Emiuetの製品電源はPWR-01で検証し、Rev.Bへ統合します。現時点の比較対象は
-Emiuet Rev.AのBQ24074、LM66100、TPS61023、AP7333を中心とする電源ブロック
-ですが、部品名を固定することより、必要な動作と測定結果を優先します。
-製品正本のDevice-only判断により、Rev.AのLM66100をUSB-C #2 Host VBUS経路の
-必須部品として固定しない。内部5V生成の必要性とUSB-C #2への外向き接続は
-別々に評価する。
-
-Hearthは別製品です。任意の比較電源または負荷切り分け用として使えますが、
-PWR-01の代替にはなりません。接続ルールは
-[interfaces/hearth-bench-interface.md](interfaces/hearth-bench-interface.md) に限定します。
-
-## Rev.Bへ移植できる条件
-
-回路ブロックをRev.Bへ移植できるのは、次をすべて満たす場合です。
-
-1. 対応する単機能試験の必須項目が合格している
-2. 回路図、BOM、PCB版、ファームウェア版、測定条件を結果に記録している
-3. INT-01で他機能と同時に動かしても合格する
-4. 未解決の異常をソフトウェア回避だけで隠していない
+USB Host、DRP、Host VBUS、内蔵電池、充電、PowerPath、battery runtime/thermal/reverse-current、dual USBは `OUT OF SCOPE BY DESIGN` です。BLEとCME H12等の個別相互運用は任意で、Rev.B hardware acceptanceを止めません。

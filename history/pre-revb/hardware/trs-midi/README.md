@@ -1,5 +1,7 @@
 # MIDI-01: TRS MIDI Type-A
 
+> **Historical:** pre-Rev.B分割検証案です。現行はVAL-CORE-01に統合します。
+
 ## 搭載範囲
 
 - GPIO43相当の3.3V UART入力

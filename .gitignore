@@ -6,6 +6,8 @@
 *.kicad_pcb-bak
 *.lck
 ~$*
+.history/
+.kicad_sch
 
 # Manufacturing and firmware build output
 **/build/
