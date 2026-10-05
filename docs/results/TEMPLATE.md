@@ -35,7 +35,8 @@
 | MIDI TX / RX | |
 | HID | |
 | Detach / reconnect count | |
-| TUSB320 attach / orientation / current | |
+| CC1/CC2電圧 / GPIO37 / Default・1.5A以上判定 | |
+| USB configured / suspend / 総入力電流 / Rp低下応答時間 | |
 | LED brightness / estimated current scale | |
 | Stuck note/key, MCU reset, frame error | |
 

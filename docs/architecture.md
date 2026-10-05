@@ -13,8 +13,8 @@
 - USB-C一口からの5V給電、保護、3.3V生成
 - ESP32-S3-MINI-1のEN/reset/BOOT、初回書込み、再書込み、復旧
 - Device/UFPでのUSB MIDI/HID composite enumeration
-- TUSB320のattach/orientation/Default・1.5A・3A advertisement読出し
-- OLEDとTUSB320のI2C共存
+- Rd＋TLV7022によるDefault／1.5A以上の検出（GPIO37）。1.5Aと3A、orientationは区別しない
+- OLEDのI2C通信。USB attach/configured/suspendはUSB stackで確認
 - 2×3 matrix、slider ×1、button ×1、pilot LED
 - AHCT level shift、SK6812 MINI-E ×6、RMT/DMA、USB MIDI RXからRGBまで
 - isolated TRS MIDI INとTRS MIDI OUT

@@ -6,13 +6,16 @@
 	(paper "A2")
 	(title_block
 		(title "VAL-CORE-01 integrated validation board")
-		(date "2026-09-01")
+		(date "2026-10-05")
 		(rev "Rev.B draft")
 		(company "Emnyeca")
 		(comment 1 "Schematic only; PCB layout intentionally unchanged")
 		(comment 2 "TBD values require VAL-CORE-01 / Rev.B prototype measurements")
 	)
 	(lib_symbols
+		(symbol "Comparator:LM2903" (pin_names (offset 0.127)) (exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (duplicate_pin_numbers_are_jumpers no) (property "Reference" "U" (at 3.81 3.81 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) (property "Value" "LM2903" (at 6.35 -3.81 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) (property "Footprint" "" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm393.pdf" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (property "Description" "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/SOP-8/TSSOP-8/VSSOP-8" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (property "ki_locked" "" (at 0 0 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) (property "ki_keywords" "cmp open collector" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* SOP*5.28x5.23mm*P1.27mm* VSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm*" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (symbol "LM2903_1_1" (polyline (pts (xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)) (stroke (width 0.254) (type default)) (fill (type background))) (polyline (pts (xy 3.302 -0.508) (xy 2.794 -0.508) (xy 3.302 0) (xy 2.794 0.508) (xy 2.286 0) (xy 2.794 -0.508) (xy 2.286 -0.508)) (stroke (width 0.127) (type default)) (fill (type none))) (pin open_collector line (at 7.62 0 180) (length 2.54) (name "" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27))))) (pin input line (at -7.62 -2.54 0) (length 2.54) (name "-" (effects (font (size 1.27 1.27)))) (number "2" (effects (font (size 1.27 1.27))))) (pin input line (at -7.62 2.54 0) (length 2.54) (name "+" (effects (font (size 1.27 1.27)))) (number "3" (effects (font (size 1.27 1.27)))))) (symbol "LM2903_2_1" (polyline (pts (xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)) (stroke (width 0.254) (type default)) (fill (type background))) (polyline (pts (xy 3.302 -0.508) (xy 2.794 -0.508) (xy 3.302 0) (xy 2.794 0.508) (xy 2.286 0) (xy 2.794 -0.508) (xy 2.286 -0.508)) (stroke (width 0.127) (type default)) (fill (type none))) (pin input line (at -7.62 2.54 0) (length 2.54) (name "+" (effects (font (size 1.27 1.27)))) (number "5" (effects (font (size 1.27 1.27))))) (pin input line (at -7.62 -2.54 0) (length 2.54) (name "-" (effects (font (size 1.27 1.27)))) (number "6" (effects (font (size 1.27 1.27))))) (pin open_collector line (at 7.62 0 180) (length 2.54) (name "" (effects (font (size 1.27 1.27)))) (number "7" (effects (font (size 1.27 1.27)))))) (symbol "LM2903_3_1" (pin power_in line (at -2.54 -7.62 90) (length 3.81) (name "V-" (effects (font (size 1.27 1.27)))) (number "4" (effects (font (size 1.27 1.27))))) (pin power_in line (at -2.54 7.62 270) (length 3.81) (name "V+" (effects (font (size 1.27 1.27)))) (number "8" (effects (font (size 1.27 1.27)))))) (embedded_fonts no))
+		(symbol "Device:C" (pin_numbers (hide yes)) (pin_names (offset 0.254)) (exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (duplicate_pin_numbers_are_jumpers no) (property "Reference" "C" (at 0.635 2.54 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left))) (property "Value" "C" (at 0.635 -2.54 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left))) (property "Footprint" "" (at 0.9652 -3.81 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (property "Datasheet" "" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (property "Description" "Unpolarized capacitor" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (property "ki_keywords" "cap capacitor" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (property "ki_fp_filters" "C_*" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (symbol "C_0_1" (polyline (pts (xy -2.032 0.762) (xy 2.032 0.762)) (stroke (width 0.508) (type default)) (fill (type none))) (polyline (pts (xy -2.032 -0.762) (xy 2.032 -0.762)) (stroke (width 0.508) (type default)) (fill (type none)))) (symbol "C_1_1" (pin passive line (at 0 3.81 270) (length 2.794) (name "" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27))))) (pin passive line (at 0 -3.81 90) (length 2.794) (name "" (effects (font (size 1.27 1.27)))) (number "2" (effects (font (size 1.27 1.27)))))) (embedded_fonts no))
+		(symbol "Device:R" (pin_numbers (hide yes)) (pin_names (offset 0)) (exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (duplicate_pin_numbers_are_jumpers no) (property "Reference" "R" (at 2.032 0 90) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) (property "Value" "R" (at 0 0 90) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) (property "Footprint" "" (at -1.778 0 90) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (property "Datasheet" "" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (property "Description" "Resistor" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (property "ki_keywords" "R res resistor" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (property "ki_fp_filters" "R_*" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27)))) (symbol "R_0_1" (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.254) (type default)) (fill (type none)))) (symbol "R_1_1" (pin passive line (at 0 3.81 270) (length 1.27) (name "" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27))))) (pin passive line (at 0 -3.81 90) (length 1.27) (name "" (effects (font (size 1.27 1.27)))) (number "2" (effects (font (size 1.27 1.27)))))) (embedded_fonts no))
 		(symbol "74xGxx:74AHCT1G125"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1291,320 +1294,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Interface_USB:TUSB320"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U"
-				(at -11.43 11.43 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "TUSB320"
-				(at 7.62 11.43 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Package_DFN_QFN:Texas_X2QFN-12_1.6x1.6mm_P0.4mm"
-				(at 5.08 -13.97 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tusb320.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "USB Type-C Configuration Channel Logic and Port Control, X2QFN-12"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "USB PD CC"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "Texas?X2QFN*1.6x1.6mm*P0.4mm*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "TUSB320_0_1"
-				(rectangle
-					(start -12.7 10.16)
-					(end 12.7 -10.16)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "TUSB320_1_1"
-				(pin bidirectional line
-					(at 15.24 2.54 180)
-					(length 2.54)
-					(name "CC1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 15.24 0 180)
-					(length 2.54)
-					(name "CC2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 15.24 -5.08 180)
-					(length 2.54)
-					(name "PORT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 15.24 7.62 180)
-					(length 2.54)
-					(name "VBUS_DET"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 15.24 -7.62 180)
-					(length 2.54)
-					(name "ADDR"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin open_collector line
-					(at -15.24 2.54 0)
-					(length 2.54)
-					(name "~{INT}/OUT3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at -15.24 7.62 0)
-					(length 2.54)
-					(name "SDA/OUT1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at -15.24 5.08 0)
-					(length 2.54)
-					(name "SCL/OUT2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin open_collector line
-					(at -15.24 0 0)
-					(length 2.54)
-					(name "ID"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -12.7 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 -5.08 0)
-					(length 2.54)
-					(name "~{EN}"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "11"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 12.7 270)
-					(length 2.54)
-					(name "VDD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "12"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
+
 		(symbol "Isolator:6N138"
 			(pin_names
 				(offset 1.016)
@@ -3942,7 +3632,7 @@
 		)
 		(uuid "38ed1743-0899-489d-a7ab-4cf939683207")
 	)
-	(text "SK6812 MINI-E DATA CHAIN: 6 pixels; every pixel has local 100nF (candidate), power is parallel"
+	(text "SK6812 MINI-E DATA CHAIN: 6 pixels; local 100nF bypass not yet implemented, power is parallel"
 		(exclude_from_sim no)
 		(at 17.78 143.51 0)
 		(effects
@@ -3955,19 +3645,7 @@
 		)
 		(uuid "5108e19c-7f7f-47a0-88b2-be9a3254d0d9")
 	)
-	(text "U2 fixed UFP: PORT=L, ADDR=L (0x60), EN_N=L, VBUS_DET via 900k; no DRP/source control"
-		(exclude_from_sim no)
-		(at 96.52 74.93 0)
-		(effects
-			(font
-				(size 1.2192 1.2192)
-				(thickness 0.2438)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "54654170-d774-487d-bfb7-cfe63ad92899")
-	)
+
 	(text "VAL-CORE-01 integrated validation board"
 		(exclude_from_sim no)
 		(at 17.78 12.7 0)
@@ -4196,16 +3874,7 @@
 		)
 		(uuid "11e80969-fdd3-4954-b3f8-c2f1e2abb353")
 	)
-	(label "GND_PORT_UFP"
-		(at 134.62 60.96 0)
-		(effects
-			(font
-				(size 1.143 1.143)
-			)
-			(justify left bottom)
-		)
-		(uuid "14ffa7ba-f445-4a9c-96a0-2182292d749c")
-	)
+
 	(label "COL7"
 		(at 187.96 88.9 180)
 		(effects
@@ -4236,16 +3905,7 @@
 		)
 		(uuid "1a74728f-288e-4b67-9f61-d00da95a21a5")
 	)
-	(label "VBUS_DET_900K"
-		(at 134.62 48.26 0)
-		(effects
-			(font
-				(size 1.143 1.143)
-			)
-			(justify left bottom)
-		)
-		(uuid "1c2227f3-bc7e-4d6c-bfc0-b4fbd4c20ee5")
-	)
+
 	(label "+5V_LED"
 		(at 45.72 149.86 0)
 		(effects
@@ -4296,16 +3956,7 @@
 		)
 		(uuid "21fc4ca1-a169-4812-ad95-d86687eca93f")
 	)
-	(label "CC2"
-		(at 134.62 55.88 0)
-		(effects
-			(font
-				(size 1.143 1.143)
-			)
-			(justify left bottom)
-		)
-		(uuid "2720af09-93b2-46e5-b2f1-f005378b574c")
-	)
+
 	(label "COL9"
 		(at 218.44 55.88 0)
 		(effects
@@ -4326,16 +3977,7 @@
 		)
 		(uuid "2c4a87ad-17c5-4ad7-b8eb-f10ead9565b6")
 	)
-	(label "GND"
-		(at 119.38 68.58 0)
-		(effects
-			(font
-				(size 1.143 1.143)
-			)
-			(justify left bottom)
-		)
-		(uuid "2e224051-00e9-471f-9dcf-0892586d42a9")
-	)
+
 	(label "MIDI_IN_RX_GPIO44"
 		(at 353.06 114.3 0)
 		(effects
@@ -4396,16 +4038,7 @@
 		)
 		(uuid "44404b77-7dea-401b-877d-ba9804294466")
 	)
-	(label "GND_ADDR_0x60"
-		(at 134.62 63.5 0)
-		(effects
-			(font
-				(size 1.143 1.143)
-			)
-			(justify left bottom)
-		)
-		(uuid "45eecc2c-6e34-4349-b1f2-d29d64504a1b")
-	)
+
 	(label "USB_D+"
 		(at 69.85 60.96 0)
 		(effects
@@ -4516,16 +4149,7 @@
 		)
 		(uuid "773bc965-65e0-4065-a0c4-67788717b4f1")
 	)
-	(label "GND_EN_N"
-		(at 104.14 60.96 0)
-		(effects
-			(font
-				(size 1.143 1.143)
-			)
-			(justify left bottom)
-		)
-		(uuid "7c0dd32e-f049-4714-b94e-2d8054a1f75a")
-	)
+
 	(label "+5V_LED"
 		(at 115.824 149.86 0)
 		(effects
@@ -4536,16 +4160,7 @@
 		)
 		(uuid "80dcb4d1-f135-4a1d-83f7-d8ca5dfb11c8")
 	)
-	(label "+3V3"
-		(at 119.38 43.18 0)
-		(effects
-			(font
-				(size 1.143 1.143)
-			)
-			(justify left bottom)
-		)
-		(uuid "86a24582-1882-4f7a-a85a-ce4e680fab5a")
-	)
+
 	(label "I2C_SCL"
 		(at 218.44 73.66 0)
 		(effects
@@ -4576,16 +4191,7 @@
 		)
 		(uuid "90561a98-c187-4335-873a-5dfbeeb15209")
 	)
-	(label "CC1"
-		(at 134.62 53.34 0)
-		(effects
-			(font
-				(size 1.143 1.143)
-			)
-			(justify left bottom)
-		)
-		(uuid "9be0e777-37e1-4ef3-9714-80bb0b7ab1ed")
-	)
+
 	(label "GND"
 		(at 50.8 81.28 0)
 		(effects
@@ -4626,16 +4232,7 @@
 		)
 		(uuid "a55aea28-91e5-4f13-826a-753301597aad")
 	)
-	(label "TUSB_INT_N"
-		(at 104.14 53.34 0)
-		(effects
-			(font
-				(size 1.143 1.143)
-			)
-			(justify left bottom)
-		)
-		(uuid "a6f0af3a-6c60-4e0f-822c-53a53cc07e36")
-	)
+
 	(label "COL8"
 		(at 218.44 50.8 0)
 		(effects
@@ -4716,16 +4313,7 @@
 		)
 		(uuid "b60387b0-67bf-494d-b770-80fd6a5b9d8a")
 	)
-	(label "I2C_SDA"
-		(at 104.14 48.26 0)
-		(effects
-			(font
-				(size 1.143 1.143)
-			)
-			(justify left bottom)
-		)
-		(uuid "b81e86a5-27f5-41b0-bbd0-4bd0eb350595")
-	)
+
 	(label "COL5"
 		(at 187.96 83.82 180)
 		(effects
@@ -4786,16 +4374,7 @@
 		)
 		(uuid "ccecd097-953c-48f5-aca6-81c5ac99d9e9")
 	)
-	(label "I2C_SCL"
-		(at 104.14 50.8 0)
-		(effects
-			(font
-				(size 1.143 1.143)
-			)
-			(justify left bottom)
-		)
-		(uuid "cee62f9d-b2ce-403e-92a4-8a636488eb79")
-	)
+
 	(label "+5V_LED"
 		(at 92.456 149.86 0)
 		(effects
@@ -4806,16 +4385,7 @@
 		)
 		(uuid "cf2d6cde-8192-473f-92dd-efa2a02238de")
 	)
-	(label "TUSB_INT_N"
-		(at 218.44 66.04 0)
-		(effects
-			(font
-				(size 1.143 1.143)
-			)
-			(justify left bottom)
-		)
-		(uuid "d0c66ba9-c8ab-4702-9d1e-adace9f3e974")
-	)
+	(label "USB_CC_1A5_N" (at 218.44 66.04 0) (effects (font (size 1.143 1.143)) (justify left bottom)) (uuid "d0c66ba9-c8ab-4702-9d1e-adace9f3e974"))
 	(label "SW_RIGHT"
 		(at 218.44 78.74 0)
 		(effects
@@ -5079,114 +4649,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "Interface_USB:TUSB320")
-		(at 119.38 55.88 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-0000b0000002")
-		(property "Reference" "U2"
-			(at 124.46 52.07 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "TUSB320LAI"
-			(at 127 59.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 119.38 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 119.38 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 119.38 55.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "4"
-			(uuid "6e5c3e2a-c39c-42fe-87c0-bb8a11739ad0")
-		)
-		(pin "8"
-			(uuid "d5c92d71-3d36-4ea4-a060-132ebb3047f8")
-		)
-		(pin "2"
-			(uuid "e01b0555-94df-4ae1-8b0c-d56a629f0010")
-		)
-		(pin "1"
-			(uuid "80e289df-ee56-46a3-bb04-6b699ac21d4e")
-		)
-		(pin "3"
-			(uuid "c55f951e-16d9-41ad-8869-4204ca468542")
-		)
-		(pin "5"
-			(uuid "5558fce5-992c-43fe-8668-1ff8031ed099")
-		)
-		(pin "6"
-			(uuid "bb5b4b55-95a6-4cf5-9787-848213928dd9")
-		)
-		(pin "7"
-			(uuid "59b589f1-f4a8-46d5-b077-a6a91f3904d8")
-		)
-		(pin "9"
-			(uuid "957ec0d1-9275-4a6c-9bb9-1ded622bd1f7")
-		)
-		(pin "11"
-			(uuid "45009166-e1af-4f0d-8cae-36b8d2811663")
-		)
-		(pin "10"
-			(uuid "4ee91d09-0429-411e-bd7b-3d0a18fee593")
-		)
-		(pin "12"
-			(uuid "6e4fa169-ec6c-45ef-8cd8-e4ae4131ba3e")
-		)
-		(instances
-			(project "VAL-CORE-01"
-				(path "/3c766895-e5b5-4bd2-9d17-05ae7221a916"
-					(reference "U2")
-					(unit 1)
-				)
-			)
-		)
-	)
+
 	(symbol
 		(lib_id "RF_Module:ESP32-S3-MINI-1")
 		(at 203.2 63.5 0)
@@ -6473,5 +5936,79 @@
 			(page "1")
 		)
 	)
+	(symbol (lib_id "Device:R") (at 43.18 220.98 0) (unit 1) (in_bom yes) (on_board yes) (dnp no) (uuid "46db5911-14f7-4c74-a8ab-a9fead041299") (property "Reference" "R8" (at 46.99 219.71 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "5.1k 1%" (at 46.99 222.25 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 43.18 220.98 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "" (at 43.18 220.98 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "34e83db8-e1c7-4acc-be30-3c664d36cc28")) (pin "2" (uuid "91dc7039-e79d-4ff2-8116-75492bf7f5c8")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "R8") (unit 1)))))
+(wire (pts (xy 43.18 217.17) (xy 43.18 214.63)) (stroke (width 0) (type default)) (uuid "dff16fda-167c-4dd8-93e5-250268491bf3"))
+(label "CC1" (at 43.18 214.63 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "2d16f24f-70b8-4839-bcce-f7173f0aff3a"))
+(wire (pts (xy 43.18 224.79) (xy 43.18 227.33)) (stroke (width 0) (type default)) (uuid "03181b16-4b2e-44a7-8233-d193f9e6a3ab"))
+(label "GND" (at 43.18 227.33 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "c466eb49-340b-4cb2-a0dc-16c0546404e2"))
+(symbol (lib_id "Device:R") (at 63.5 220.98 0) (unit 1) (in_bom yes) (on_board yes) (dnp no) (uuid "089f6483-5756-42d8-8632-a06e49d36aa0") (property "Reference" "R9" (at 67.31 219.71 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "5.1k 1%" (at 67.31 222.25 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 63.5 220.98 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "" (at 63.5 220.98 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "0856ce09-9754-4e6a-89c1-94b13e126b55")) (pin "2" (uuid "36bea676-8f32-4590-9fb3-07eeb5a22b64")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "R9") (unit 1)))))
+(wire (pts (xy 63.5 217.17) (xy 63.5 214.63)) (stroke (width 0) (type default)) (uuid "cd1d5a87-5695-483b-8b8b-b37e4d45886b"))
+(label "CC2" (at 63.5 214.63 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "54e9733a-0d41-4b79-887b-5f81ba57ccbb"))
+(wire (pts (xy 63.5 224.79) (xy 63.5 227.33)) (stroke (width 0) (type default)) (uuid "c451b187-6f53-4d1b-aeb5-2aaa4e7efee6"))
+(label "GND" (at 63.5 227.33 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "368a2037-af19-41bd-9c6a-9f08c267c073"))
+(symbol (lib_id "Device:R") (at 83.82 220.98 0) (unit 1) (in_bom yes) (on_board yes) (dnp no) (uuid "6976b4f2-85ab-4940-9624-7fb6d73666b9") (property "Reference" "R10" (at 87.63 219.71 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "100k" (at 87.63 222.25 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 83.82 220.98 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv7022.pdf" (at 83.82 220.98 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "4dca162b-b7f7-4677-9df0-0281a4faf89f")) (pin "2" (uuid "25d574af-0225-435a-ab62-dbf6cd0c2718")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "R10") (unit 1)))))
+(wire (pts (xy 83.82 217.17) (xy 83.82 214.63)) (stroke (width 0) (type default)) (uuid "3e5ff2c1-c4c1-4ee8-9e1d-42310d9b5740"))
+(label "CC1" (at 83.82 214.63 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "89ef71f7-0836-4f69-9491-ad85e0a10e58"))
+(wire (pts (xy 83.82 224.79) (xy 83.82 227.33)) (stroke (width 0) (type default)) (uuid "7721732a-8a07-45c7-8e5a-4ec601a8e902"))
+(label "CC1_FILT" (at 83.82 227.33 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "45ecc17b-f6c6-47db-8b9a-bfd5cfd5c1b2"))
+(symbol (lib_id "Device:C") (at 104.14 220.98 0) (unit 1) (in_bom yes) (on_board yes) (dnp no) (uuid "56561959-5e48-4fa5-b6be-00913a3c4c98") (property "Reference" "C7" (at 107.95 219.71 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "10n" (at 107.95 222.25 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 104.14 220.98 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv7022.pdf" (at 104.14 220.98 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "96d30683-7905-4f0b-af7c-1a31a67a7bb7")) (pin "2" (uuid "8c24be18-f214-4c9c-9337-a73762c0ebd1")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "C7") (unit 1)))))
+(wire (pts (xy 104.14 217.17) (xy 104.14 214.63)) (stroke (width 0) (type default)) (uuid "3771a2a2-4c9e-4807-bb7e-f0d33fc34bad"))
+(label "CC1_FILT" (at 104.14 214.63 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "fa1dc6a3-cd47-4920-87be-bb84e504b047"))
+(wire (pts (xy 104.14 224.79) (xy 104.14 227.33)) (stroke (width 0) (type default)) (uuid "ca9272ac-160b-4520-b2c5-aba9ccc71f50"))
+(label "GND" (at 104.14 227.33 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "2c71ef51-5122-40ce-884b-3c95a530b458"))
+(symbol (lib_id "Device:R") (at 124.46 220.98 0) (unit 1) (in_bom yes) (on_board yes) (dnp no) (uuid "dc43d519-a5c9-4f59-bffc-e445ab63a3b3") (property "Reference" "R11" (at 128.27 219.71 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "100k" (at 128.27 222.25 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 124.46 220.98 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv7022.pdf" (at 124.46 220.98 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "efc70bde-67ea-4d11-be3f-2ee673285fa2")) (pin "2" (uuid "6dda620c-e335-4288-8bbf-4d7d814e8960")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "R11") (unit 1)))))
+(wire (pts (xy 124.46 217.17) (xy 124.46 214.63)) (stroke (width 0) (type default)) (uuid "ec6b7bbc-f717-4dbe-b751-63632660d053"))
+(label "CC2" (at 124.46 214.63 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "40bcc671-7fb6-4caa-8501-e4b27b2e792b"))
+(wire (pts (xy 124.46 224.79) (xy 124.46 227.33)) (stroke (width 0) (type default)) (uuid "cc88dd34-6275-47f4-996a-08fadb4f3205"))
+(label "CC2_FILT" (at 124.46 227.33 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "039639ba-69c2-4a55-ad42-33178a03b222"))
+(symbol (lib_id "Device:C") (at 144.78 220.98 0) (unit 1) (in_bom yes) (on_board yes) (dnp no) (uuid "8bb2c1a7-b687-4460-946a-f444a3b6b383") (property "Reference" "C8" (at 148.59 219.71 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "10n" (at 148.59 222.25 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 144.78 220.98 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv7022.pdf" (at 144.78 220.98 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "4d9881a8-b3a7-4e46-bf10-455d63d698f6")) (pin "2" (uuid "738a9b59-b0a6-4e1b-be0d-f070140130f6")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "C8") (unit 1)))))
+(wire (pts (xy 144.78 217.17) (xy 144.78 214.63)) (stroke (width 0) (type default)) (uuid "e2be57d0-e22e-437a-883b-04db569f3cdb"))
+(label "CC2_FILT" (at 144.78 214.63 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "de8cfb2f-a489-4ad6-9fac-3c6d3b788de1"))
+(wire (pts (xy 144.78 224.79) (xy 144.78 227.33)) (stroke (width 0) (type default)) (uuid "91314226-a849-405a-8def-ab4b089509e7"))
+(label "GND" (at 144.78 227.33 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "6b09cd54-a30b-4557-ad20-22e481ad7593"))
+(symbol (lib_id "Device:R") (at 43.18 248.92 0) (unit 1) (in_bom yes) (on_board yes) (dnp no) (uuid "f4165f8a-eda7-4d50-b578-165c00a7a275") (property "Reference" "R12" (at 46.99 247.65 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "38.3k 1%" (at 46.99 250.19 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 43.18 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv7022.pdf" (at 43.18 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "e2f7890a-210e-493e-a7af-402dbd04b347")) (pin "2" (uuid "a061f149-2eb0-4a79-af0d-3b1fc5d5a432")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "R12") (unit 1)))))
+(wire (pts (xy 43.18 245.11) (xy 43.18 242.57)) (stroke (width 0) (type default)) (uuid "24d70cff-a529-402b-a511-dd3615bcb5f1"))
+(label "+3V3" (at 43.18 242.57 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "a2681fd2-ec69-4050-a3d7-200377ee7617"))
+(wire (pts (xy 43.18 252.73) (xy 43.18 255.27)) (stroke (width 0) (type default)) (uuid "e1f6d285-f660-46d4-acd0-db148e090106"))
+(label "CC_VREF" (at 43.18 255.27 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "ccf6efb9-ddce-43c9-844f-e314bba8b425"))
+(symbol (lib_id "Device:R") (at 63.5 248.92 0) (unit 1) (in_bom yes) (on_board yes) (dnp no) (uuid "f302b6b9-e69d-4416-b5c6-638ec1ff167a") (property "Reference" "R13" (at 67.31 247.65 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "10k 1%" (at 67.31 250.19 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 63.5 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv7022.pdf" (at 63.5 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "a70ea7fc-6f58-4237-a922-4dc358bd0b90")) (pin "2" (uuid "df697abc-3c36-49a9-a0a3-c1331cc4d817")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "R13") (unit 1)))))
+(wire (pts (xy 63.5 245.11) (xy 63.5 242.57)) (stroke (width 0) (type default)) (uuid "9743b8ed-be97-4dc9-93b0-9be07ae6fedf"))
+(label "CC_VREF" (at 63.5 242.57 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "58704ea3-13bf-416c-bf0e-820dcd10bcbe"))
+(wire (pts (xy 63.5 252.73) (xy 63.5 255.27)) (stroke (width 0) (type default)) (uuid "5fcf0fad-76fe-4a9c-aef7-6d62416e3f36"))
+(label "GND" (at 63.5 255.27 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "fe37b01a-4e8a-4a2a-8008-4a4a8c1617c7"))
+(symbol (lib_id "Device:C") (at 83.82 248.92 0) (unit 1) (in_bom yes) (on_board yes) (dnp no) (uuid "8c10138b-b9b7-44e2-bbaa-05e5e0396e71") (property "Reference" "C9" (at 87.63 247.65 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "100n" (at 87.63 250.19 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 83.82 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv7022.pdf" (at 83.82 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "25bcb4b5-b6ac-44f6-b4f6-19e66b6dd8ed")) (pin "2" (uuid "dc0a23cd-e06c-4a48-9750-75dd92578e54")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "C9") (unit 1)))))
+(wire (pts (xy 83.82 245.11) (xy 83.82 242.57)) (stroke (width 0) (type default)) (uuid "4f2ba651-b851-4a41-8fc9-00782975b666"))
+(label "CC_VREF" (at 83.82 242.57 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "a0f6f36e-0a2c-4335-969d-f944538116f2"))
+(wire (pts (xy 83.82 252.73) (xy 83.82 255.27)) (stroke (width 0) (type default)) (uuid "a178ff94-38dc-4478-b364-bfb7a1eb267e"))
+(label "GND" (at 83.82 255.27 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "b94dc749-9caa-4c17-8161-c04d2214eed4"))
+(symbol (lib_id "Comparator:LM2903") (at 114.3 248.92 0) (unit 1) (in_bom yes) (on_board yes) (dnp no) (uuid "cd8ad582-efaf-4c51-afc3-5f671974f99e") (property "Reference" "U6" (at 118.11 247.65 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "TLV7022DGKR" (at 118.11 250.19 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Package_SO:VSSOP-8_3x3mm_P0.65mm" (at 114.3 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv7022.pdf" (at 114.3 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "MPN" "TLV7022DGKR" (at 114.3 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "48be8338-7a83-415e-ad9f-32559d981930")) (pin "2" (uuid "aec40b26-66c8-41e5-ae19-49f92ef4928d")) (pin "3" (uuid "932e703f-a47b-41f3-8b39-8dcd1d4c9c0f")) (pin "5" (uuid "06a8918d-b1c3-4cc7-a428-3e0d43e71cd9")) (pin "6" (uuid "50329d02-96bd-4b35-9aea-1643d6f521aa")) (pin "7" (uuid "92a39954-f0b5-4ec7-a159-83d693479524")) (pin "4" (uuid "e03cf037-e219-4aa3-821b-991b3c95564f")) (pin "8" (uuid "3c9f265f-92d7-44a8-b88b-2e262eeda155")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "U6") (unit 1)))))
+(wire (pts (xy 121.92 248.92) (xy 124.46 248.92)) (stroke (width 0) (type default)) (uuid "70bc7e7b-0dc9-49b8-9628-1a3e1df82def"))
+(label "USB_CC_1A5_N" (at 124.46 248.92 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "848d6f42-e620-4194-8c8f-afce587afe35"))
+(wire (pts (xy 106.68 251.46) (xy 104.14 251.46)) (stroke (width 0) (type default)) (uuid "1f4f803e-1fad-41b1-8353-f4264200b317"))
+(label "CC1_FILT" (at 104.14 251.46 180) (effects (font (size 1.0 1.0)) (justify right bottom)) (uuid "5b275ec6-24fe-4a21-87f3-a03d8479317c"))
+(wire (pts (xy 106.68 246.38) (xy 104.14 246.38)) (stroke (width 0) (type default)) (uuid "e63e2a2c-dcfb-4622-8e3a-2ebd0bd9e526"))
+(label "CC_VREF" (at 104.14 246.38 180) (effects (font (size 1.0 1.0)) (justify right bottom)) (uuid "4a58b1af-55d1-4d4d-a9a5-5a72afedd5aa"))
+(symbol (lib_id "Comparator:LM2903") (at 144.78 248.92 0) (unit 2) (in_bom yes) (on_board yes) (dnp no) (uuid "b27dcd66-55d8-45d3-b65b-60c0a16323cd") (property "Reference" "U6" (at 148.59 247.65 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "TLV7022DGKR" (at 148.59 250.19 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Package_SO:VSSOP-8_3x3mm_P0.65mm" (at 144.78 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv7022.pdf" (at 144.78 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "MPN" "TLV7022DGKR" (at 144.78 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "5e07b144-ae1e-4a76-9570-a661cadecabb")) (pin "2" (uuid "5744c486-26a4-4310-b872-1c15b60b02c5")) (pin "3" (uuid "4465e974-4242-49f0-a385-af36f2e1b945")) (pin "5" (uuid "424bba90-16d6-45fc-97d9-493cb3374e2a")) (pin "6" (uuid "da4db91d-1e1e-4d16-bad4-f65fae77af7c")) (pin "7" (uuid "bef50958-0b25-4a85-932d-eded29030d9f")) (pin "4" (uuid "8e3f1ae6-5fd8-4547-ba97-bf5e080991f8")) (pin "8" (uuid "f8a29953-abc8-4ff4-b45b-4403b2a3f6e0")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "U6") (unit 2)))))
+(wire (pts (xy 137.16 246.38) (xy 134.62 246.38)) (stroke (width 0) (type default)) (uuid "7739c9d7-658d-44ec-b2f4-9423395cacaf"))
+(label "CC_VREF" (at 134.62 246.38 180) (effects (font (size 1.0 1.0)) (justify right bottom)) (uuid "f1d664f0-3018-4cf3-8e58-abe832600e46"))
+(wire (pts (xy 137.16 251.46) (xy 134.62 251.46)) (stroke (width 0) (type default)) (uuid "775d6652-adc9-4aad-8897-ffca669eefd0"))
+(label "CC2_FILT" (at 134.62 251.46 180) (effects (font (size 1.0 1.0)) (justify right bottom)) (uuid "ddae9129-d891-4b35-b6ca-0dc086dde861"))
+(wire (pts (xy 152.4 248.92) (xy 154.94 248.92)) (stroke (width 0) (type default)) (uuid "30e53661-63e8-464c-9e74-1fa3a900a352"))
+(label "USB_CC_1A5_N" (at 154.94 248.92 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "7bc33610-c510-4ff5-a7de-0123bcbc154b"))
+(symbol (lib_id "Comparator:LM2903") (at 172.72 248.92 0) (unit 3) (in_bom yes) (on_board yes) (dnp no) (uuid "d317a8a0-815f-43a3-aed4-dff2c10e7945") (property "Reference" "U6" (at 176.53 247.65 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "TLV7022DGKR" (at 176.53 250.19 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Package_SO:VSSOP-8_3x3mm_P0.65mm" (at 172.72 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv7022.pdf" (at 172.72 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "MPN" "TLV7022DGKR" (at 172.72 248.92 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "23c1d26a-31a8-41f4-9dba-306e53eb97d1")) (pin "2" (uuid "f01e8668-42e1-42da-b3c0-de4b7491b575")) (pin "3" (uuid "83d565b0-a2dd-4acf-9f4c-edc042f8a957")) (pin "5" (uuid "2efbaf6f-241b-4d84-bd07-fd290c68b007")) (pin "6" (uuid "e91d8730-2a5b-4b67-8d27-7df4ce6208d6")) (pin "7" (uuid "40ef1f69-c643-4f28-8f0b-825bc47ba735")) (pin "4" (uuid "845650c3-8269-429d-8160-02836555a9cc")) (pin "8" (uuid "788f3e78-9cc4-4683-b3b2-b36618cab00f")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "U6") (unit 3)))))
+(wire (pts (xy 170.18 256.54) (xy 170.18 259.08)) (stroke (width 0) (type default)) (uuid "8a3a4e45-83e8-4a42-bbbc-0784dbea97e4"))
+(label "GND" (at 170.18 259.08 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "c8557aca-5aca-40b3-815f-8c32edcf028e"))
+(wire (pts (xy 170.18 241.3) (xy 170.18 238.76)) (stroke (width 0) (type default)) (uuid "21b465c6-478e-43c5-a6e0-486990b6b387"))
+(label "+3V3" (at 170.18 238.76 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "6e366c40-532d-4ece-9d19-c623aba369fc"))
+(symbol (lib_id "Device:C") (at 203.2 223.52 0) (unit 1) (in_bom yes) (on_board yes) (dnp no) (uuid "cd4c7bec-50b7-4805-b80b-f2bdb63e51e0") (property "Reference" "C5" (at 207.01 222.25 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "100n" (at 207.01 224.79 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 203.2 223.52 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv7022.pdf" (at 203.2 223.52 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "323d6a98-611d-4d83-8cd4-3fb87acf0b37")) (pin "2" (uuid "fa1cfdb8-a73b-4659-9de5-acac408fb35a")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "C5") (unit 1)))))
+(wire (pts (xy 203.2 219.71) (xy 203.2 217.17)) (stroke (width 0) (type default)) (uuid "36973cde-0a71-48ec-9617-a59ea774beca"))
+(label "+3V3" (at 203.2 217.17 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "1f38d9c3-669b-40cb-afb3-6bf1da9f420a"))
+(wire (pts (xy 203.2 227.33) (xy 203.2 229.87)) (stroke (width 0) (type default)) (uuid "fd5dbac2-7650-4cd1-973d-6d657a002c03"))
+(label "GND" (at 203.2 229.87 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "29d0db95-d4f1-4994-9454-01ed444d1e02"))
+(symbol (lib_id "Device:R") (at 228.6 223.52 0) (unit 1) (in_bom yes) (on_board yes) (dnp no) (uuid "8d0d0e5e-4d2e-45a7-b610-cd71ba4c27e8") (property "Reference" "R6" (at 232.41 222.25 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Value" "10k" (at 232.41 224.79 0) (effects (font (size 1.0 1.0)) (justify left))) (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 228.6 223.52 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv7022.pdf" (at 228.6 223.52 0) (effects (font (size 1.0 1.0)) (justify left) (hide yes))) (pin "1" (uuid "749243f0-e242-4e1b-b2ad-e927aecdcc75")) (pin "2" (uuid "d153f3bc-e5b8-4f6e-a532-556e8186feef")) (instances (project "VAL-CORE-01" (path "/3c766895-e5b5-4bd2-9d17-05ae7221a916" (reference "R6") (unit 1)))))
+(wire (pts (xy 228.6 219.71) (xy 228.6 217.17)) (stroke (width 0) (type default)) (uuid "16493a75-128f-41ca-8146-d1dee6060298"))
+(label "+3V3" (at 228.6 217.17 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "bc6ac0bb-778e-4c9c-8f7b-0e67bf5274f8"))
+(wire (pts (xy 228.6 227.33) (xy 228.6 229.87)) (stroke (width 0) (type default)) (uuid "700cac93-0c8d-4c35-9377-464b44be1632"))
+(label "USB_CC_1A5_N" (at 228.6 229.87 0) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "bd0a3d31-74bc-46bd-ab9c-1a69a2f9b1bb"))
 	(embedded_fonts no)
 )

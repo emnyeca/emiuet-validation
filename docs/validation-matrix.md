@@ -21,8 +21,8 @@
 | V1-03 | 2×3 matrix | 全6 key、diode direction、debounce、同時押し、MIDI生成を確認 |
 | V1-04 | slider ×1 | ADC全域、静止noise、smoothing、MIDI CCを確認 |
 | V1-05 | button ×1 | press/release、debounce、firmware actionを確認 |
-| V1-06 | OLED/TUSB320 I2C | 同一busで連続読書きし、bus hang・address collisionなし |
-| V1-07 | TUSB320 attach/orientation | attach/detach、CC1/CC2 orientationをI2Cで取得 |
+| V1-06 | OLED I2C | 表示更新を継続し、bus hangなし。module側と基板側pull-upの合成と立上り時間を確認 |
+| V1-07 | CC検出 / USB状態 | ケーブル両方向でCC電圧とGPIO37を記録し、Default／1.5A以上の判定を確認。attach/configured/suspendはUSB stackで確認 |
 | V1-08 | TRS MIDI OUT | Type-A、31.25 kbit/s、実受信機でNote On/Offを確認 |
 | V1-09 | TRS MIDI IN | isolationを維持し、Type-A入力をUARTへ受信、USB/I2Cと同時動作 |
 
@@ -32,9 +32,9 @@
 |---|---|---|
 | V2-01 | SK6812 chain | 6 pixelのRGB order、個別色、DIN/DOUT chainを確認 |
 | V2-02 | RMT/DMA | bit-bangなしで更新し、USB/MIDI処理中もframe corruptionなし |
-| V2-03 | MIDI RX → RGB | Note On/Off、global brightness、basic display modeが期待どおり |
-| V2-04 | current advertisement | Default、1.5A、3Aを判別し、3Aでもfirmware ceilingは1.5A相当 |
-| V2-05 | Default mode budget | Default設定のbrightness/current limitでenumeration・MIDIが安定 |
+| V2-03 | MIDI RX → RGB | 製品仕様で定義済みのNote On/Off表示を確認。標準CCを未定義のbrightness/mode設定に転用しない |
+| V2-04 | current advertisement | Default、1.5A、3Aのsourceを個別に試し、検出はDefault／1.5A以上の二値。Rp低下から消費電流低下まで60 ms以内か波形で測定。3Aでも上限は増やさない |
+| V2-05 | Default mode budget | configured、未configured、suspendごとにUSB入力の総電流を測る。RGB黒表示でも残るMCU/OLED/pixel待機電流を含め、状態別USB制限を照合。列挙成功だけで合格にしない |
 | V2-06 | 1.5A mode budget | 設定上限内のanimationで5V/3V3、buffer波形、温度が許容範囲 |
 | V2-07 | reconnect under animation | animation中のUSB抜差しでreset loop、stale state、hangなし |
 
