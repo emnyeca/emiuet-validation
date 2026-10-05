@@ -1,15 +1,7 @@
-# 診断ファームウェア
+# VAL-CORE-01 Diagnostic Firmware
 
-Emiuet本番ファームウェアの音楽的挙動を置き換えるものではありません。
-各検証基板の入力、出力、時刻、エラーを観測しやすくする最小構成を置きます。
+製品仕様とtransport/rendering実装は `emnyeca/emiuet/firmware` を正本とし、ここにはVAL-CORE-01固有の診断設定・fixture・ログだけを置きます。
 
-## 共通要件
+診断buildは起動時にboard ID、hardware rev、firmware commit、reset reason、TUSB320 attach/current/orientationを出力します。USB mount/unmount、matrix、ADC、button、I2C error、MIDI TX/RX、LED frame/current scaleを時刻付きで記録できるようにします。
 
-- 使用した基板IDとファームウェアcommitを起動ログへ出す
-- 電源状態、USB mount、行列イベント、ADC生値、MIDI送信失敗を時刻付きで出す
-- 診断出力のON/OFFで演奏経路の結果が変わらないようにする
-- MIDI生成側はtransport I/Oを待たない
-- GPIO割当はEmiuetの `docs/pinout-v3.md` と意図的な差分を明示する
-
-最初は既存Emiuetファームウェアの再利用可能な部分を確認し、検証専用の変更を
-本番側へ混ぜずに、小さなアプリまたはビルド設定として追加します。
+診断出力の有無で演奏経路を変えず、USB MIDI RX → parser → LED state → RMT rendererは製品firmwareと同じコードを使います。GPIOはVAL-CORE-01回路図を正とし、製品Rev.Bとの差はboard profileで明示します。

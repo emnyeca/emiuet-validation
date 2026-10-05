@@ -1,112 +1,55 @@
-# Rev.B前 検証マトリクス
+# Rev.B Validation Matrix
 
-合否は実測結果へのリンクで判断します。「動いた」という記憶や、別の電源で
-動いた結果だけでは合格にしません。数値の未確定項目は測定前に確定します。
+## V0 — Power / MCU
 
-## ゲート順序
+| ID | 試験 | 合格条件 |
+|---|---|---|
+| V0-01 | visual/short check | 極性・部品向きに異常がなく、5V/3V3-GNDに短絡なし |
+| V0-02 | current-limited first power | 異常発熱・過電流なし、TP_5V/TP_3V3が設計範囲内 |
+| V0-03 | physical power switch | OFFで基板停止、ONで確実に起動し、逆給電なし |
+| V0-04 | EN/reset/BOOT | reset、download boot、通常bootが再現可能 |
+| V0-05 | flashing/rewrite/recovery | 初回書込み、再書込み、bad firmware後のdownload boot recoveryが可能 |
+| V0-06 | repeated power cycle | 20回のOFF/ONでboot失敗・latch・異常発熱なし |
+| V0-07 | pilot LED | boot/diagnostic stateをGPIOで表示可能 |
 
-| Gate | 対象 | 前提 | 必須の合格条件 | 次に許可する作業 |
-|---|---|---|---|---|
-| G0 | 要求・電流予算 | なし | 最大/通常負荷、充電電流、許容リップル、低電圧方針を承認 | PWR-01回路確定 |
-| G1 | PWR-01 | G0 | 全入力状態、負荷段階、切替、逆流、熱、PG/CHGを実測 | PWR-01でCORE-01を給電 |
-| G2 | CORE-01 | 安全なベンチ給電 | 全起動条件、書込み、固定UFP Composite列挙、USB MIDI/HID、mode切替、抜差し・再接続、連続動作を合格 | 周辺機能接続 |
-| G3 | MAT-BB-01 | 診断FW | 単押し、和音、素早い反復で誤検出なし | MAT-01製造 |
-| G4 | MAT-01 | G2/G3 | 78キー、複数同時押し、起動時押下、長時間走査を合格 | INT-01へ行列回路移植 |
-| G5 | ANA-01 | G2 | 3入力の全域、静止値、戻り、同時走査時ノイズを合格 | INT-01へADC回路移植 |
-| G6 | UI-BB-01 | G2 | I2C共有、全操作、表示負荷中の走査/MIDIを合格 | INT-01へUI接続移植 |
-| G7 | MIDI-01 | G1/G2 | Type-A配線、電気条件、実受信機、UART競合回避を合格 | INT-01へTRS回路移植 |
-| G8 | BLE | G2 | 実transport、接続/再接続、USB/TRS同時出力、負荷を合格 | INT-01でBLE有効化 |
-| G9 | INT-01 | G1–G8 | 自己電源でUSB MIDI/HID・TRS・BLE・行列・slider・OLEDを統合し、電源/USB遷移と長時間動作を合格 | Rev.B設計開始 |
+## V1 — Core I/O
 
-G8のBLEはCORE-01上で検証し、専用PCBは作りません。無線問題が再現する場合
-のみ、アンテナ周辺条件を変えたCORE-01派生版を作ります。
+| ID | 試験 | 合格条件 |
+|---|---|---|
+| V1-01 | USB composite | USB MIDI + HID Keyboardとして安定列挙し、抜差し後に再列挙 |
+| V1-02 | USB MIDI TX/RX | Emiuet→PCとPC→EmiuetのNote/CCを双方向で確認 |
+| V1-03 | 2×3 matrix | 全6 key、diode direction、debounce、同時押し、MIDI生成を確認 |
+| V1-04 | slider ×1 | ADC全域、静止noise、smoothing、MIDI CCを確認 |
+| V1-05 | button ×1 | press/release、debounce、firmware actionを確認 |
+| V1-06 | OLED I2C | 表示更新を継続し、bus hangなし。module側と基板側pull-upの合成と立上り時間を確認 |
+| V1-07 | CC検出 / USB状態 | ケーブル両方向でCC電圧とGPIO37を記録し、Default／1.5A以上の判定を確認。attach/configured/suspendはUSB stackで確認 |
+| V1-08 | TRS MIDI OUT | Type-A、31.25 kbit/s、実受信機でNote On/Offを確認 |
+| V1-09 | TRS MIDI IN | isolationを維持し、Type-A入力をUARTへ受信、USB/I2Cと同時動作 |
 
-USB Host、Host MIDI、DRP/OTG role switching、Host VBUS sourcing、および
-Device/Host transitionは全Gateで`OUT OF SCOPE BY DESIGN`とする。これらを
-未実施としてBLOCKEDにしたり、Rev.B開始条件へ戻したりしない。
+## V2 — RGB / USB power
 
-## G2 CORE-01 USB Device合格条件
+| ID | 試験 | 合格条件 |
+|---|---|---|
+| V2-01 | SK6812 chain | 6 pixelのRGB order、個別色、DIN/DOUT chainを確認 |
+| V2-02 | RMT/DMA | bit-bangなしで更新し、USB/MIDI処理中もframe corruptionなし |
+| V2-03 | MIDI RX → RGB | 製品仕様で定義済みのNote On/Off表示を確認。標準CCを未定義のbrightness/mode設定に転用しない |
+| V2-04 | current advertisement | Default、1.5A、3Aのsourceを個別に試し、検出はDefault／1.5A以上の二値。Rp低下から消費電流低下まで60 ms以内か波形で測定。3Aでも上限は増やさない |
+| V2-05 | Default mode budget | configured、未configured、suspendごとにUSB入力の総電流を測る。RGB黒表示でも残るMCU/OLED/pixel待機電流を含め、状態別USB制限を照合。列挙成功だけで合格にしない |
+| V2-06 | 1.5A mode budget | 設定上限内のanimationで5V/3V3、buffer波形、温度が許容範囲 |
+| V2-07 | reconnect under animation | animation中のUSB抜差しでreset loop、stale state、hangなし |
 
-### Enumeration
+## V3 — Rev.B Integrated Prototype
 
-- 標準USB Hostへ接続すると、MIDIとHID Keyboardを含む一つのComposite Deviceとして列挙する
-- USB Host stack、role negotiation、Host VBUS制御をfirmwareへ組み込まず成立する
-- MIDI/TYPE切替でUSB disconnectまたは再enumerationを発生させない
+| ID | 試験 | 合格条件 |
+|---|---|---|
+| V3-01 | all inputs | 78 keys、slider ×3、button ×3、OLED、TRSを同時操作可能 |
+| V3-02 | 78 RGB | 全pixel、logical/physical mapping、brightness制限が正しい |
+| V3-03 | 5V distribution | 遠端電圧降下、最大/typical current、connector/trace温度を実測 |
+| V3-04 | USB MIDI/HID | TX/RX、TYPE mode、抜差し、再列挙、stuck note/keyなし |
+| V3-05 | TRS MIDI | IN/OUTをUSBと同時使用して欠落・UART conflictなし |
+| V3-06 | integrated load | animation、matrix scan、OLED更新、MIDI traffic同時でも安定 |
+| V3-07 | endurance | typical sceneで1～2時間連続動作し、reset・hang・異常温度なし |
 
-### USB MIDI / HID
+## 共通記録
 
-- Note On/Offを送信でき、連続演奏でtransportが停止しない
-- TYPE Modeでletter、number、Space、Enter、Backspace、modifier+key、arrowを入力できる
-- MIDI→TYPE→MIDIを反復してもstuck note/key、reset、crashがない
-
-### Physical detach / reconnect
-
-- USB-C #2抜差しでfirmwareがhangまたはresetしない
-- 切断時のpending MIDI/HID eventを再接続後に送信しない
-- stale note/key/modifier stateを残さず、Composite Deviceとして再列挙する
-
-Windowsを最低限の必須実測Hostとし、利用可能ならmacOS等を追加する。実測前は
-`REQUIRES HARDWARE TEST`であり、PASSと推定しない。
-
-## G9 INT-01統合条件
-
-- USB MIDI + matrix performance
-- USB HID TYPE Mode + matrix
-- USB + TRS simultaneous MIDI output
-- USB + BLE simultaneous operation
-- OLED update during USB MIDI/HID operation
-- battery operation中のUSB-C #2 detach/reconnect
-- Shift+letter、Ctrl+C/V/Z、Fn+mapped key、複数Space、4隅mode chord
-
-matrix hardwareが全物理キーをscanできることと、USB Boot Keyboard reportの
-6KRO + modifiers制約は別々に記録する。
-
-CME H12MIDI ProとのComposite Device相互運用は、利用可能な場合の
-operational interoperability testとする。MIDI interface認識、HID併存、
-Note On/Off routing、reconnectを確認するが、未実施・非対応はRev.B必須電気
-GateのFAILにしない。
-
-## PWR-01 入力状態
-
-各行を無負荷、通常負荷、最大負荷で測定します。
-
-| Battery | Charge USB (#1) | Data USB (#2) | 確認事項 |
-|---|---|---|---|
-| 接続 | なし | なし | 電池起動、5V/3.3V、BAT_VSENSE、待機電流 |
-| 接続 | 接続 | なし | 給電中充電、PG/CHG、温度、負荷応答 |
-| 接続 | なし | 接続 | Device側VBUS検出、内部への意図しない給電、USB-C #2への逆流 |
-| 接続 | 接続 | 接続 | 二重接続時の電流経路、列挙への影響 |
-| なし | 接続 | なし | バッテリーなし動作の可否を仕様どおり確認 |
-| なし | なし | 接続 | USB-C #2だけでは起動しないこと、内部への給電・逆流がないこと |
-| 接続 | 抜差し | 任意 | リセット、Note Off欠落、電圧降下 |
-
-Hearthを比較に使う場合も同じ負荷・同じ測定器・同じ記録形式を使います。
-ただしPWR-01欄はPWR-01の結果でのみ合格にできます。
-
-## 共通の記録項目
-
-- 試験ID、日時、担当者
-- 回路図/PCB/BOMのGit commit
-- ファームウェアのGit commitと設定差分
-- 電源、ケーブル、電池、負荷、受信機、測定器
-- 期待値、実測値、PASS/FAIL/BLOCKED
-- 写真、波形、ログの相対パス
-- 異常の再現手順と暫定回避策
-
-USB試験では追加で、Host OS / hardware host、USB cable、enumerated
-interfaces、VID/PID、MIDI/HID結果、detach/reconnect回数、mode transition
-回数、stuck note/key回数、MCU reset回数を記録する。
-
-結果は [results/TEMPLATE.md](results/TEMPLATE.md) を複製して保存します。
-
-## 現在の未実測項目
-
-次は文書またはビルドだけでPASSにせず、実測まで`REQUIRES HARDWARE TEST`
-として扱う。
-
-- real OS composite enumeration
-- physical USB-C #2 detach / reconnect
-- battery + Data USB (#2) interaction
-- USB-C #1 + #2 simultaneous connection
-- self-powered VBUS monitor threshold / disconnect behavior
-- CME H12MIDI Pro interoperability（任意運用試験、Rev.B必須Gateではない）
+結果は [`results/TEMPLATE.md`](results/TEMPLATE.md) を複製し、基板rev、schematic/BOM/firmware commit、電源とadvertised current、ケーブル、Host OS、測定器、期待値、実測値、判定、写真・波形・ログを記録します。実測前の項目をPASSと推定しません。

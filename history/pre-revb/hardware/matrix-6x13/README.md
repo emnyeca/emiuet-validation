@@ -1,5 +1,7 @@
 # MAT-01: 6×13キー行列
 
+> **Historical:** pre-Rev.B分割検証案です。現行mandatory validationではありません。
+
 2×4ブレッドボードで走査条件を確定した後に製造する、行列専用PCBです。
 
 ## 搭載範囲

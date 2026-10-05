@@ -1,5 +1,7 @@
 # PWR-01: Emiuet内蔵電源
 
+> **Historical:** pre-Rev.B分割検証案です。内蔵電池はRev.Bで不採用です。
+
 Emiuet Rev.Bへ統合する電源回路だけを検証するPCBです。Hearthの回路を
 そのまま転用せず、Emiuetの製品条件を正として設計します。
 
